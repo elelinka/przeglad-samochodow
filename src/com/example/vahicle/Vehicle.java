@@ -6,15 +6,15 @@ public class Vehicle {
     private String model;
     private int year;
     private long mileage;
-    private String VINnumber;
+    private String numberVin;
 
-    public Vehicle(String type, String brand, String model, int year, long mileage, String VINnumber) {
+    public Vehicle(String type, String brand, String model, int year, long mileage, String numberVin) {
         this.type = type;
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.mileage = mileage;
-        this.VINnumber = VINnumber;
+        this.numberVin = numberVin;
     }
 
     public String getType() {
@@ -57,16 +57,16 @@ public class Vehicle {
         this.mileage = mileage;
     }
 
-    public String getVINnumber() {
-        return VINnumber;
+    public String getNumberVin() {
+        return numberVin;
     }
 
-    public void setVINnumber(String VINnumber) {
-        this.VINnumber = VINnumber;
+    public void setNumberVin(String numberVin) {
+        this.numberVin = numberVin;
     }
 
     @Override
     public String toString() {
-        return "type: " + type + ", brand: " + brand + ", model: " + model + ", year: " + year + ", mileage: " + mileage + ", VINnumber: " + VINnumber + "";
+        return "type: " + type + ", brand: " + brand + ", model: " + model + ", year: " + year + ", mileage: " + mileage + ", numberVin: " + numberVin + "";
     }
 }

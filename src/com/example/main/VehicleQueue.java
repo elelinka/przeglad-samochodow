@@ -51,8 +51,8 @@ public class VehicleQueue {
         long mileage = input.nextLong();
         input.nextLine();
         System.out.println("Nr VIN:");
-        String VINnumber = input.nextLine();
-        return new Vehicle(type, brand, model, year, mileage, VINnumber);
+        String numberVin = input.nextLine();
+        return new Vehicle(type, brand, model, year, mileage, numberVin);
     }
 
     public static Queue<Vehicle> getVehicleQueue() {
