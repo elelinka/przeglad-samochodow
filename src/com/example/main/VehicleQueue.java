@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class VehicleQueue {
 
-    public static void vehicleController(Queue<Vehicle> vehicles) {
+    public static void vehicleController() {
+        Queue<Vehicle> vehicles = getVehicleQueue();
         String number;
 
         do {
@@ -55,7 +56,7 @@ public class VehicleQueue {
         return new Vehicle(type, brand, model, year, mileage, numberVin);
     }
 
-    public static Queue<Vehicle> getVehicleQueue() {
+    private static Queue<Vehicle> getVehicleQueue() {
         Queue<Vehicle> vehicles = new LinkedList<>();
         Vehicle vehicle1 = new Vehicle("samochód osobowy", "BMW", "X4", 2018, 200000, "VBT256233");
         Vehicle vehicle2 = new Vehicle("motocykl", "Honda", "CB1100 EX", 2015, 350000, "VTR56232656");
