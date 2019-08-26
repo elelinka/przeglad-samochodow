@@ -8,36 +8,51 @@ import java.util.Scanner;
 
 public class VehicleQueue {
 
-    public static Queue<Vehicle> vehicleController(Queue<Vehicle> vehicles) {
+    public static void vehicleController(Queue<Vehicle> vehicles) {
+        String number;
+
+        do {
+            number = getUserInput();
+            switch (number) {
+                case "1":
+                    Vehicle vehicle = getNewVehicle();
+                    vehicles.offer(vehicle);
+                    System.out.println(vehicles);
+                    break;
+                case "2":
+                    vehicles.poll();
+                    System.out.println(vehicles);
+                    break;
+            }
+        } while (!("0".equals(number)));
+    }
+
+    private static String getUserInput() {
         Scanner input = new Scanner(System.in);
         System.out.println("Wciśnij 1, jeśli chcesz dodać informacje o pojeździe." +
                 "\nWciśnij 2, jeśli chcesz poddać kontroli pojazd." +
                 "\nJesli chcesz zakończyć, naciśnij 0.");
-        String number = input.nextLine();
+        return input.nextLine();
+    }
 
-        if ("1".equals(number)) {
-            System.out.println("Wprowadź dane pojazdu:");
-            System.out.println("Typ:");
-            String type = input.nextLine();
-            System.out.println("Marka:");
-            String brand = input.nextLine();
-            System.out.println("Model:");
-            String model = input.nextLine();
-            System.out.println("Rok produkcji:");
-            int year = input.nextInt();
-            input.nextLine();
-            System.out.println("Przebieg:");
-            long mileage = input.nextLong();
-            input.nextLine();
-            System.out.println("Nr VIN:");
-            String VINnumber = input.nextLine();
-            vehicles.offer(new Vehicle(type, brand, model, year, mileage, VINnumber));
-        } else if ("2".equals(number)) {
-            vehicles.poll();
-        } else if ("0".equals(number)) {
-            input.close();
-        }
-        return vehicles;
+    private static Vehicle getNewVehicle() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Wprowadź dane pojazdu:");
+        System.out.println("Typ:");
+        String type = input.nextLine();
+        System.out.println("Marka:");
+        String brand = input.nextLine();
+        System.out.println("Model:");
+        String model = input.nextLine();
+        System.out.println("Rok produkcji:");
+        int year = input.nextInt();
+        input.nextLine();
+        System.out.println("Przebieg:");
+        long mileage = input.nextLong();
+        input.nextLine();
+        System.out.println("Nr VIN:");
+        String VINnumber = input.nextLine();
+        return new Vehicle(type, brand, model, year, mileage, VINnumber);
     }
 
     public static Queue<Vehicle> getVehicleQueue() {
